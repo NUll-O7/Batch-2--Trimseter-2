@@ -1,0 +1,74 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.toolbox-cont{
+    display: flex;
+    height:5rem ;
+    background-color: #4b4b4b;
+    align-items: center;
+   
+   
+}
+
+.toolbox-priority-cont{
+    display: flex;
+    height:3.5rem ;
+    width: 18rem;
+    background-color: #3b3b3b;
+    margin-left: 4rem;
+    justify-content: space-evenly;
+    align-items: center;
+
+   
+}
+
+.color{
+    height: 1.5rem;
+    width: 3rem;
+
+}
+
+.lightpink{
+    background-color: lightpink;
+}
+
+
+.lightgreen{
+    background-color: lightgreen;
+}
+
+.lightblue{
+    background-color: lightblue;
+}
+
+.black{
+    background-color: black;
+}
+
+/* Action buttons  */
+
+
+.action-btn-cont{
+    display: flex;
+    height:3.5rem ;
+    width: 8rem;
+    background-color:#3b3b3b ;
+    margin-left: 3rem;
+    justify-content: space-around;
+    align-items: center;
+
+}
+
+.action-btn-cont>*{
+    width: 50%;
+    font-size: 2rem;
+    color: white;
+    text-align: center;
+}
+
+
+
+
