@@ -104,6 +104,49 @@
 }
 
 
+/*  modal pop up design */
+
+
+.modal-cont{
+    display: flex;
+    height: 50vh;
+    width: 45vw;
+    background-color: gray;
+    position: absolute;
+    top : 30%;
+    left : 27%
+}
+
+
+.textArea-cont{
+  width: 70%;
+  height: 100%;
+  resize: none;
+  background-color: lightgray;
+  font-size: 2rem;
+  border: none;
+  outline: none;
+}
+
+.priority-color{
+    height: 3rem;
+    width: 5rem;
+  
+}
+
+
+.priority-colors-container{
+ width: 30%;
+ display: flex;
+ flex-direction: column;
+ align-items: center;
+ justify-content: space-evenly;
+
+}
+
+
+
+
 
 
 
