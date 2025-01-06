@@ -10,7 +10,7 @@ let mainCont = document.querySelector('.main-cont')
 let allPriorityColors = document.querySelectorAll('.priority-color')
 console.log(allPriorityColors)
 
-// let modalTaskColor = "black";
+let modalTaskColor = "lightpink";
 
 // Modal popup open and Close
 
@@ -26,10 +26,10 @@ addBtn.addEventListener("click", function () {
 
 // function to create the Ticket
 
-function createTicket(task, id) {
+function createTicket(taskColor , task, id) {
   const ticketCont = document.createElement("div");
   ticketCont.setAttribute("class", "ticket-cont");
-  ticketCont.innerHTML = `<div class="ticket-color"></div>
+  ticketCont.innerHTML = `<div class="ticket-color" style="background-color:${taskColor}"></div>
              <div class="ticket-id">${id}</div>
              <div class="task-area">${task}</div>
               <div class="ticket-lock">
@@ -50,7 +50,7 @@ modalCont.addEventListener("keydown", function (e) {
     console.log(task, " -> ", id);
 
     //  create the task ticket
-    createTicket(task , id)
+    createTicket(modalTaskColor, task , id)
     modalCont.style.display = 'none'
     addBtnFlag = false
     taskArea.value = ''
@@ -64,6 +64,9 @@ allPriorityColors.forEach(function(colorElem){
         priorityColor.classList.remove('active')
      })
      colorElem.classList.add('active')
+
+     modalTaskColor = colorElem.classList[0] // lightgreen
+     console.log(modalTaskColor)
    })
 
  
