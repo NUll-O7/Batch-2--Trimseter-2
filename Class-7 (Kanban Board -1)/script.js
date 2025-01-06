@@ -7,6 +7,9 @@ let addBtnFlag = false;
 
 let mainCont = document.querySelector('.main-cont')
 
+let allPriorityColors = document.querySelectorAll('.priority-color')
+console.log(allPriorityColors)
+
 // let modalTaskColor = "black";
 
 // Modal popup open and Close
@@ -50,5 +53,18 @@ modalCont.addEventListener("keydown", function (e) {
     createTicket(task , id)
     modalCont.style.display = 'none'
     addBtnFlag = false
+    taskArea.value = ''
   }
 });
+
+// Moving Active class to respective color and selecting it
+allPriorityColors.forEach(function(colorElem){
+   colorElem.addEventListener('click' , function(){
+     allPriorityColors.forEach(function(priorityColor){
+        priorityColor.classList.remove('active')
+     })
+     colorElem.classList.add('active')
+   })
+
+ 
+})
