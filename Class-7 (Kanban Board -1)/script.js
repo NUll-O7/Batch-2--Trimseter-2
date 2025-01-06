@@ -1,9 +1,11 @@
 let addBtn = document.querySelector(".add-btn");
+let removeBtn = document.querySelector('.remove-btn')
 let modalCont = document.querySelector(".modal-cont");
 
 let taskArea = document.querySelector(".textArea-cont");
 
 let addBtnFlag = false;
+let removeBtnFlag = false
 
 let mainCont = document.querySelector('.main-cont')
 
@@ -24,6 +26,32 @@ addBtn.addEventListener("click", function () {
   }
 });
 
+
+// Ticket removal
+
+removeBtn.addEventListener('click' , function(){
+    removeBtnFlag = !removeBtnFlag
+
+    if(removeBtnFlag){
+        alert('Delete button Activated')
+        removeBtn.style.color = 'red'
+    }
+    else{
+        removeBtn.style.color = 'white'
+    }
+
+
+})
+
+function handleRemoval(ticket){
+  ticket.addEventListener('click' , function(){
+    if(removeBtnFlag===true){
+        ticket.remove()
+    }
+  })
+}
+
+
 // function to create the Ticket
 
 function createTicket(taskColor , task, id) {
@@ -37,6 +65,8 @@ function createTicket(taskColor , task, id) {
               </div>`;
 
               mainCont.appendChild(ticketCont)
+              handleRemoval(ticketCont)
+              
 
 
 }
@@ -47,7 +77,7 @@ modalCont.addEventListener("keydown", function (e) {
   if (e.key == "Shift") {
     const task = taskArea.value;
     const id = shortid();
-    console.log(task, " -> ", id);
+    // console.log(task, " -> ", id);
 
     //  create the task ticket
     createTicket(modalTaskColor, task , id)
