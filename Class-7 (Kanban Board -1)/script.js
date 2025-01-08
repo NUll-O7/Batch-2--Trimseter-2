@@ -14,7 +14,15 @@ let allPriorityColors = document.querySelectorAll('.priority-color')
 
 let modalTaskColor = "lightpink";
 
+
+// Lock variables
+
+let lockOpen =  'fa-lock-open'
+let lockClose = 'fa-lock'
+
 // Modal popup open and Close
+
+
 
 addBtn.addEventListener("click", function () {
   addBtnFlag = !addBtnFlag;
@@ -77,6 +85,40 @@ function handleColor(ticket){
    
 }
 
+// Handle Lock to edit content
+
+function handleLock(ticket){
+   const ticketLockContainer = ticket.querySelector('.ticket-lock')
+   console.log(ticketLockContainer)
+
+   let ticketLock = ticketLockContainer.children[0]
+   let taskArea = document.querySelector('.task-area')
+
+   ticketLock.addEventListener('click' , function(){
+    if(ticketLock.classList.contains(lockClose)){
+      // Lock Open
+      ticketLock.classList.add(lockOpen)
+      ticketLock.classList.remove(lockClose)
+      taskArea.setAttribute('contenteditable' , 'true')
+
+
+    }
+    else{
+      // Lock Close
+      ticketLock.classList.add(lockClose)
+      ticketLock.classList.remove(lockOpen)
+      taskArea.setAttribute('contenteditable' , 'false')
+
+    }
+   })
+
+ 
+
+   
+
+    
+}
+
 
 // function to create the Ticket
 
@@ -93,6 +135,7 @@ function createTicket(taskColor , task, id) {
               mainCont.appendChild(ticketCont)
               handleRemoval(ticketCont)
               handleColor(ticketCont)
+              handleLock(ticketCont)
               
 
 
