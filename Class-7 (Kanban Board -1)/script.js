@@ -3,14 +3,14 @@ let removeBtn = document.querySelector('.remove-btn')
 let modalCont = document.querySelector(".modal-cont");
 
 let taskArea = document.querySelector(".textArea-cont");
-
+let colors = ['lightpink' , 'lightgreen' , 'lightblue' , 'black']
 let addBtnFlag = false;
 let removeBtnFlag = false
 
 let mainCont = document.querySelector('.main-cont')
 
 let allPriorityColors = document.querySelectorAll('.priority-color')
-console.log(allPriorityColors)
+// console.log(allPriorityColors)
 
 let modalTaskColor = "lightpink";
 
@@ -51,6 +51,32 @@ function handleRemoval(ticket){
   })
 }
 
+// Handle change of Priority Colors
+
+function handleColor(ticket){
+   const ticketColorBand = ticket.querySelector('.ticket-color')
+
+    ticketColorBand.addEventListener('click' , function(){
+      let currentColor = ticketColorBand.style.backgroundColor // lightblue
+
+      let currentColorIdx = colors.findIndex(function(color){
+          return color === currentColor
+      })
+
+      currentColorIdx++
+
+      let newColorIdx = currentColorIdx % colors.length
+      let newColor = colors[newColorIdx]
+      console.log(newColor)
+
+      ticketColorBand.style.backgroundColor = newColor
+
+      
+    })
+
+   
+}
+
 
 // function to create the Ticket
 
@@ -66,10 +92,16 @@ function createTicket(taskColor , task, id) {
 
               mainCont.appendChild(ticketCont)
               handleRemoval(ticketCont)
+              handleColor(ticketCont)
               
 
 
 }
+
+
+// Change priority of the Ticket
+
+
 
 // get data for the ticket on modal event
 
@@ -96,7 +128,7 @@ allPriorityColors.forEach(function(colorElem){
      colorElem.classList.add('active')
 
      modalTaskColor = colorElem.classList[0] // lightgreen
-     console.log(modalTaskColor)
+    //  console.log(modalTaskColor)
    })
 
  
