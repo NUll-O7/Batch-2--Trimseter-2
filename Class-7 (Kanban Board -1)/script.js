@@ -160,31 +160,20 @@ allPriorityColors.forEach(function (colorElem) {
 // Filter task according to selected Color
 filterBoxColors.forEach(function (color) {
   color.addEventListener("click", function () {
-    let selectedColor = color.classList[0]
-    let allTickets = document.querySelectorAll('.ticket-cont')
+    let selectedColor = color.classList[0];
+    let allTickets = document.querySelectorAll(".ticket-cont");
 
-    allTickets.forEach(function(ticket){
-        let ticketColors = ticket.querySelector('.ticket-color')
-        console.log(ticketColors)
+    allTickets.forEach(function (ticket) {
+      let ticketColors = ticket.querySelector(".ticket-color");
+      console.log(ticketColors);
 
-        if(ticketColors.style.backgroundColor === selectedColor){
-          // display the ticktes
-          ticket.style.display='block'
-          
-        }
-
-        else{
-          // hide the ticktes
-             ticket.style.display='none'
-        }
-
-
-    })
-
-
-
-
-    
-
+      if (ticketColors.style.backgroundColor === selectedColor) {
+        // display the ticktes
+        ticket.style.display = "block";
+      } else {
+        // hide the ticktes
+        ticket.style.display = "none";
+      }
+    });
   });
 });
