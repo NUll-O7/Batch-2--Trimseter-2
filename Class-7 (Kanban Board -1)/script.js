@@ -101,7 +101,7 @@ function handleLock(ticket) {
   // console.log(ticketLockContainer);
 
   let ticketLock = ticketLockContainer.children[0];
-  let taskArea = document.querySelector(".task-area");
+  let taskArea = ticket.querySelector(".task-area");
 
   ticketLock.addEventListener("click", function () {
     if (ticketLock.classList.contains(lockClose)) {
