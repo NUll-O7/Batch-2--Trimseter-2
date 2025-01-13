@@ -89,6 +89,8 @@ function handleColor(ticket) {
     // console.log(newColor);
 
     ticketColorBand.style.backgroundColor = newColor;
+
+    // updated color of ticket is added in Local Storage
   });
 }
 
@@ -107,6 +109,7 @@ function handleLock(ticket) {
       ticketLock.classList.add(lockOpen);
       ticketLock.classList.remove(lockClose);
       taskArea.setAttribute("contenteditable", "true");
+      // updated task should be saved in the local storage
     } else {
       // Lock Close
       ticketLock.classList.add(lockClose);
