@@ -17,10 +17,21 @@ let allPriorityColors = document.querySelectorAll(".priority-color");
 
 let modalTaskColor = "lightpink";
 
+let ticketsArr = JSON.parse(localStorage.getItem("apptickets")) || [];
+console.log(ticketsArr);
+
+function init() {
+  if (localStorage.getItem("apptickets")) {
+    ticketsArr.forEach(function (ticket) {
+      createTicket(ticket.ticketColor,ticket.ticketTask,  ticket.ticketId );
+    });
+  }
+}
+
+init();
+
 // Tickets Array
 
-let ticketsArr = [];
-// console.log(ticketsArr)
 // Lock variables
 
 let lockOpen = "fa-lock-open";
@@ -122,8 +133,7 @@ function createTicket(taskColor, task, id) {
   handleColor(ticketCont);
   handleLock(ticketCont);
 
-  ticketsArr.push({ ticketId: id, ticketColor: taskColor, ticketTask: task });
-  // console.log(ticketsArr)
+
 }
 
 // Change priority of the Ticket
@@ -141,6 +151,8 @@ modalCont.addEventListener("keydown", function (e) {
     modalCont.style.display = "none";
     addBtnFlag = false;
     taskArea.value = "";
+    ticketsArr.push({ticketColor: modalTaskColor,ticketTask: task,  ticketId: id,   });
+    updateLocalStorage();
   }
 });
 
@@ -177,3 +189,9 @@ filterBoxColors.forEach(function (color) {
     });
   });
 });
+
+// set Local storage
+
+function updateLocalStorage() {
+  localStorage.setItem("apptickets", JSON.stringify(ticketsArr));
+}

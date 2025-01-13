@@ -1,0 +1,15 @@
+[
+  {
+    "movieName": "The Godfather",
+    "releaseDate": "12/11/1976",
+    "Ratings": 8.9,
+    "is18+": true
+  },
+
+  {
+    "movieName": "The Prestige",
+    "releaseDate": "13/03/2001",
+    "Ratings": 8.4,
+    "is18+": false
+  }
+]
