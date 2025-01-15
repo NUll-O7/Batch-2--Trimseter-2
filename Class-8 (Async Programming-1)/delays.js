@@ -1,14 +1,18 @@
 // 1. 
 
-console.log('A')
+console.log('A') // done
 
-setTimeout(function () {
+
+
+function P(){
     console.log("P");
-  }, 200);
+  }
 
+  function Q(){
+    console.log('Q')
+  }
 
-  setTimeout(function () {
-    console.log("Q");
-  }, 100);
+  setTimeout(P , 100);
+  setTimeout(Q, 100);
 
   console.log("R");
