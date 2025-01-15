@@ -65,7 +65,12 @@ removeBtn.addEventListener("click", function () {
 function handleRemoval(ticket) {
   ticket.addEventListener("click", function () {
     if (removeBtnFlag === true) {
+      const id = ticket.querySelector('.ticket-id').innerText
+      let idx = getIdx(id)
+      console.log(idx)
+      ticketsArr.splice(idx , 1)
       ticket.remove();
+      updateLocalStorage()
     }
   });
 }
@@ -74,9 +79,16 @@ function handleRemoval(ticket) {
 
 function handleColor(ticket) {
   const ticketColorBand = ticket.querySelector(".ticket-color");
+  const id = ticket.querySelector('.ticket-id').innerText
+
+  console.log(id)
 
   ticketColorBand.addEventListener("click", function () {
     let currentColor = ticketColorBand.style.backgroundColor; // lightblue
+
+    let ticketIdx = getIdx(id)
+
+    // console.log(ticketIdx)
 
     let currentColorIdx = colors.findIndex(function (color) {
       return color === currentColor;
@@ -91,6 +103,8 @@ function handleColor(ticket) {
     ticketColorBand.style.backgroundColor = newColor;
 
     // updated color of ticket is added in Local Storage
+    ticketsArr[ticketIdx].ticketColor = newColor
+    updateLocalStorage()
   });
 }
 
@@ -197,4 +211,13 @@ filterBoxColors.forEach(function (color) {
 
 function updateLocalStorage() {
   localStorage.setItem("apptickets", JSON.stringify(ticketsArr));
+}
+
+// get ticket Id
+
+function getIdx(selectedTicketId){
+  const ticketIdx = ticketsArr.findIndex(function(ticket){
+       return  ticket.ticketId===selectedTicketId
+  })
+  return ticketIdx
 }
