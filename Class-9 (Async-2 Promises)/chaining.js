@@ -1,3 +1,5 @@
+console.log('Start')
+
 function promise1() {
   return new Promise(function (resolve, reject) {
     setTimeout(function () {
@@ -66,5 +68,7 @@ promise1().then(function(result){
 }).catch(function(err){
     console.log(err)
 })
+
+console.log("End")
 
 
