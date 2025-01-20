@@ -1,26 +1,51 @@
-function prepareIngredients(){
-  setTimeout(function(){
-    console.log('Ingredients Prepared')
-  } , 2000)
+function prepareIngredients(callback) {
+  setTimeout(function () {
+    console.log("Ingredients Prepared");
+    callback();
+  }, 2000);
 }
 
-function cookDish(){
-    setTimeout(function(){
-      console.log('Dish cooked')
-    } , 5000)
-  }
+function cookDish(callback) {
+  setTimeout(function () {
+    console.log("Dish cooked");
+    callback();
+  }, 1000);
+}
 
-  function serveDish(){
-    setTimeout(function(){
-      console.log('Dish Served')
-    } , 6000)
-  }
+function serveDish(callback) {
+  setTimeout(function () {
+    console.log("Dish Served");
+    callback();
+  }, 500);
+}
 
-  function cleanUp(){
-    setTimeout(function(){
-      console.log("Table cleaned")
-    } , 4000)
-  }
+function cleanUp(callback) {
+  setTimeout(function () {
+    console.log("Table cleaned");
+    callback();
+  }, 200);
+}
+
+function provideFeedback() {
+  setTimeout(function () {
+    console.log("feedback recieved");
+  });
+}
 
 
-  prepareIngredients()
+
+// prepareIngredients(function cookDish() {
+//   function serveDish() {
+//     cleanUp();
+//   }
+// }); wrong way
+
+prepareIngredients(function () {
+  cookDish(function () {
+    serveDish(function () {
+      cleanUp(function () {
+        provideFeedback();
+      });
+    });
+  });
+});
