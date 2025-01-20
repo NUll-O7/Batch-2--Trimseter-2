@@ -54,7 +54,7 @@ function promise3() {
 
 promise1().then(function(result){
     console.log(result)
-    return promise2(result)
+    return promise2()
 }).then(function(result2){
     console.log(result2)
 }).catch(function(err){
